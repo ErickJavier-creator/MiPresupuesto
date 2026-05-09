@@ -1,10 +1,18 @@
-import {MyRoutes, Sidebar, Device,Light, Dark, AuthContextProvider} from "./index"
-import {createContext, useState} from "react"
-import {ThemeProvider, styled} from "styled-components"
+import {
+  MyRoutes,
+  Sidebar,
+  Device,
+  Light,
+  Dark,
+  AuthContextProvider,
+  Menuambur,
+} from "./index";
+import { createContext, useState } from "react";
+import { ThemeProvider, styled } from "styled-components";
 export const ThemeContext = createContext(null);
 function App() {
   const [theme, setTheme] = useState("light");
-  const themeStyle = theme==="light"? Light : Dark;
+  const themeStyle = theme === "light" ? Light : Dark;
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -13,7 +21,12 @@ function App() {
         <ThemeProvider theme={themeStyle}>
           <AuthContextProvider>
             <Container>
-              <Sidebar />   
+              <div className="ContentSidebar">
+                <Sidebar />
+              </div>
+              <div className="ContentMenuambur">
+                <Menuambur />
+              </div>
               <ContainerBody>
                 <MyRoutes />
               </ContainerBody>
@@ -25,17 +38,34 @@ function App() {
   );
 }
 const Container = styled.div`
-display: grid;
-grid-template-columns: 1fr;
-@media ${Device.tablet}{
   display: grid;
-  grid-template-columns: 65px 1fr;
-
-}
+  grid-template-columns: 1fr;
+  background: ${({ theme }) => theme.bgtotal};
+  .ContentMenuambur{
+    display: block;
+    position: absolute;
+    left: 20px;
+  }
+  .ContentSidebar {
+    display: none;
+  }
+  @media ${Device.tablet} {
+    display: grid;
+    grid-template-columns: 65px 1fr;
+    .ContentSidebar {
+      display: initial;
+    }
+    .ContentMenuambur{
+      display: none;
+    }
+  }
 `;
 const ContainerBody = styled.div`
-  grid-column: 2;
+  grid-column: 1;
   width: 100%;
-`
-  
-export default App
+  @media ${Device.tablet} {
+    grid-column: 2;
+  }
+`;
+
+export default App;
