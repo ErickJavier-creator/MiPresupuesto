@@ -1,10 +1,10 @@
-import {Routes,Route, BrowserRouter} from "react-router-dom"
+import {Routes,Route, } from "react-router-dom"
 import {Login,Home, ProtectedRoute, UserAuth} from "../index"
 
 export function MyRoutes(){
   const {user} = UserAuth();
     return (
-      <BrowserRouter>
+      
         <Routes>
           <Route path="/login" element={ <Login />} />
 
@@ -13,7 +13,7 @@ export function MyRoutes(){
 
           </Route>
         </Routes>
-      </BrowserRouter>
+      
     );
 }
 

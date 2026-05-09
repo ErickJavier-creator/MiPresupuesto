@@ -1,6 +1,7 @@
 export { default as App } from './App';
 export * from './components/atomos/icono';
 export * from './components/moleculas/Btnsave';
+export * from './components/organismos/sidebar/Sidebar';
 export * from './components/templates/HomeTemplate';
 export * from './components/templates/LoginTemplate';
 export * from './context/AuthContext';
@@ -10,6 +11,7 @@ export * from './pages/Home';
 export * from './pages/Login';
 export * from './routers/routes';
 export * from './store/AuthStore';
+export * from './styles/breakpoints';
 export * from './styles/themes';
 export * from './styles/variables';
 export * from './supabase/supabase.config';
