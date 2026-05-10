@@ -22,7 +22,7 @@ function App() {
           <AuthContextProvider>
             <Container>
               <div className="ContentSidebar">
-                <Sidebar />
+                <Sidebar state={sidebarOpen} setState={setSidebarOpen}/>
               </div>
               <div className="ContentMenuambur">
                 <Menuambur />

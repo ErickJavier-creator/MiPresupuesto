@@ -1,0 +1,128 @@
+
+￼
+MiPresupuesto
+Public
+￼Unpin
+￼
+Watch
+0
+ (0)
+￼Fork 0
+￼ Star 0
+￼
+ErickJavier-creator/MiPresupuesto
+￼
+ main
+1 Branch
+0 Tags
+￼
+t
+T
+Add file￼
+Add file
+￼
+￼
+Code
+Folders and files
+Name		
+Latest commit
+￼
+ErickJavier-creator
+Enhance App component layout by adding Menuambur and restructuring si…
+￼
+094df66
+ · 
+3 minutes ago
+History
+6 Commits
+public
+Initialize project with React, Vite, and ESLint setup; add essential …
+yesterday
+src
+Enhance App component layout by adding Menuambur and restructuring si…
+3 minutes ago
+.gitignore
+Initialize project with React, Vite, and ESLint setup; add essential …
+yesterday
+README.md
+first commit
+yesterday
+eslint.config.js
+Initialize project with React, Vite, and ESLint setup; add essential …
+yesterday
+index.html
+Update project structure: change language to Spanish in index.html, a…
+yesterday
+package-lock.json
+Update project structure: change language to Spanish in index.html, a…
+yesterday
+package.json
+Update project structure: change language to Spanish in index.html, a…
+yesterday
+vite.config.js
+Initialize project with React, Vite, and ESLint setup; add essential …
+yesterday
+Repository files navigation
+README
+￼
+￼
+React + Vite
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+@vitejs/plugin-react uses Oxc
+@vitejs/plugin-react-swc uses SWC
+React Compiler
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see this documentation.
+
+Expanding the ESLint configuration
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the TS template for information on how to integrate TypeScript and typescript-eslint in your project.
+
+About
+No description, website, or topics provided.
+Resources
+ Readme
+ Activity
+Stars
+ 0 stars
+Watchers
+ 0 watching
+Forks
+ 0 forks
+Releases
+No releases published
+Create a new release
+Packages
+No packages published
+Publish your first package
+Contributors
+2
+￼
+JavawDev
+￼
+ErickJavier-creator Erick Javier
+Languages
+JavaScript
+95.5%
+ 
+HTML
+2.5%
+ 
+CSS
+2.0%
+Suggested workflows
+Based on your tech stack
+￼
+Deno
+Configure Deno
+Test your Deno project
+￼
+Webpack
+Configure Webpack
+Build a NodeJS project with npm and webpack.
+￼
+Datadog Synthetics
+Configure Datadog Synthetics
+Run Datadog Synthetic tests within your GitHub Actions workflow
+More workflows
