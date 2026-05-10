@@ -4,8 +4,11 @@ import { NavLink } from "react-router-dom";
 
 export function Sidebar({state, setState}) {
   return (
-    <Main >
-      <Container isOpen={state}>
+    <Main isOpen={state}>
+      <span className="Sidebarbutton" onClick={() => setState(!state)}>
+        {<v.iconoflechaderecha/>}
+      </span>
+      <Container isOpen={state} className={state? "active": ""}>
         <div className="Logocontent">
           <div className="imgcontent">
             <img src={v.logo} alt="" />
@@ -17,7 +20,7 @@ export function Sidebar({state, setState}) {
           <div className={state? "LinkContainer active": "LinkContainer"} key={label}>
              <NavLink to={to} className={({isActive}) => `Links ${isActive?` active`: ``}`}>
               <div className="Linkicon">{icon}</div>
-              <span>{label}</span>
+              {state && <span>{label}</span>} 
             </NavLink>
           </div>
            
@@ -34,8 +37,14 @@ const Container = styled.div`
   background: ${({ theme }) => theme.bg};
   position: fixed;
   padding-top: 20px;
-  z-index: 100;
+  z-index: 1;
   height: 100%;
+  width: 65px;
+  transition: 0.3s ease-in-out;
+  
+  &.active{
+    width: 220px;
+  }
     .Logocontent {
     display: flex;
     justify-content: center;
@@ -114,11 +123,30 @@ const Container = styled.div`
   
 `
 const Main = styled.div`
-  
-`
+  .Sidebarbutton {
+    position: fixed;
+    top: 70px;
+    left: 42px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.bgtgderecha};
+    box-shadow:
+      0px 0px 4px ${({ theme }) => theme.bg3},
+      0px 0px 7px ${({ theme }) => theme.bg};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 2;
+    transform: ${({isOpen}) => (isOpen? `traslateX(162px) rotate(3.142rad)`: `initial`)};
+  }
+`;
 const Divider = styled.div`
   height: 1px;
   width: 100%;
   background: ${({ theme }) => theme.bg4};
   margin: ${() => {return v.lgSpacing}} o;
+
 `

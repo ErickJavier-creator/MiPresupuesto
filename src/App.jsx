@@ -11,7 +11,7 @@ import { createContext, useState } from "react";
 import { ThemeProvider, styled } from "styled-components";
 export const ThemeContext = createContext(null);
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
   const themeStyle = theme === "light" ? Light : Dark;
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -20,7 +20,7 @@ function App() {
       <ThemeContext.Provider value={{ setTheme, theme }}>
         <ThemeProvider theme={themeStyle}>
           <AuthContextProvider>
-            <Container>
+            <Container className={sidebarOpen ?  "active": ""}>
               <div className="ContentSidebar">
                 <Sidebar state={sidebarOpen} setState={setSidebarOpen}/>
               </div>
@@ -41,6 +41,8 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   background: ${({ theme }) => theme.bgtotal};
+  transition: 0.3s ease-in-out;
+ 
   .ContentMenuambur{
     display: block;
     position: absolute;
@@ -51,7 +53,10 @@ const Container = styled.div`
   }
   @media ${Device.tablet} {
     display: grid;
-    grid-template-columns: 65px 1fr;
+    grid-template-columns: 65px 1fr; 
+    &:active {
+    grid-template-columns: 220px 1fr;
+  }
     .ContentSidebar {
       display: initial;
     }
