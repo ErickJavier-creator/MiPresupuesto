@@ -60,6 +60,16 @@ const Container = styled.div`
   height: 100%;
   width: 65px;
   transition: 0.3s ease-in-out;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 6px;
+    border: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.colorScroll};
+    border-radius: 10px;
+  }
   
   &.active{
     width: 220px;
@@ -149,17 +159,18 @@ const Main = styled.div`
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: ${({ theme }) => theme.bgtgderecha};
-    box-shadow:
-      0px 0px 4px ${({ theme }) => theme.bg3},
-      0px 0px 7px ${({ theme }) => theme.bg};
+    background: ${(props) => props.theme.bgtgderecha};
+    box-shadow: 0 0 4px ${(props) => props.theme.bg3},
+      0 0 7px ${(props) => props.theme.bg};
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
     transition: all 0.2s;
     z-index: 2;
-    transform: ${({isOpen}) => (isOpen? `traslateX(162px) rotate(3.142rad)`: `initial`)};
+    transform: ${({ isOpen }) =>
+      isOpen ? `translateX(162px) rotate(3.142rad)` : `initial`};
+    color: ${(props) => props.theme.text};
   }
 `;
 const Divider = styled.div`

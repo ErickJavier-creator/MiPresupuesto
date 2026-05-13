@@ -9,8 +9,9 @@ export function SidebarCard() {
         <div className="circle1"></div>
         <div className="circle2"></div>
         <h3>Centro de Ayuda</h3>
-
-        <Btnsave titulo="Contactar" bgcolor="#f8f2fd"/>
+        <div className="contentBtn">
+          <Btnsave titulo="Contactar" bgcolor="#f8f2fd" />
+        </div>
       </div>
     </Container>
   );
@@ -20,15 +21,16 @@ const Container =styled.div`
   padding: 1rem;
   text-align: center;
   position: relative;
-  .icon{
+  .icon {
     position: absolute;
     font-size: 3rem;
     border-radius: 50%;
-    top: -80x;
+    top: -8px;
     right: 50%;
     transform: translate(50%);
     z-index: 100;
   }
+  
   .cardContent{
     position: relative;
     padding: 1rem;
@@ -52,7 +54,7 @@ const Container =styled.div`
       width: 150px;
       bottom: -80px;
       right: -70px;
-      z-index: 1;
+      z-index: 0;
     }
     h3{
       font-size: 1.1rem;
@@ -60,6 +62,9 @@ const Container =styled.div`
       padding: 1rem 0;
       font-weight: 800;
       color: #000;
+    }
+    .contentBtn{
+      margin-left: -px;
     }
   }
 
