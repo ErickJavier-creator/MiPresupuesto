@@ -53,10 +53,10 @@ const Container = styled.div`
   }
   @media ${Device.tablet} {
     display: grid;
-    grid-template-columns: 65px 1fr; 
-    &:active {
-    grid-template-columns: 220px 1fr;
-  }
+    grid-template-columns: 65px 1fr;
+    &.active {
+      grid-template-columns: 220px 1fr;
+    }
     .ContentSidebar {
       display: initial;
     }
