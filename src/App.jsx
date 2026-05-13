@@ -11,7 +11,7 @@ import { createContext, useState } from "react";
 import { ThemeProvider, styled } from "styled-components";
 export const ThemeContext = createContext(null);
 function App() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
   const themeStyle = theme === "light" ? Light : Dark;
   const [sidebarOpen, setSidebarOpen] = useState(false);
 

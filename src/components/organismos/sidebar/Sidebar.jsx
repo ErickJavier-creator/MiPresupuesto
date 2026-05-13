@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import {v, LinksArray} from "../../../index";
+import {v, LinksArray, SecondarylinksArray, SidebarCard} from "../../../index";
 import { NavLink } from "react-router-dom";
 
 export function Sidebar({state, setState}) {
   return (
     <Main isOpen={state}>
       <span className="Sidebarbutton" onClick={() => setState(!state)}>
-        {<v.iconoflechaderecha/>}
+        {<v.iconoflechaderecha />}
       </span>
-      <Container isOpen={state} className={state? "active": ""}>
+      <Container isOpen={state} className={state ? "active" : ""}>
         <div className="Logocontent">
           <div className="imgcontent">
             <img src={v.logo} alt="" />
@@ -16,18 +16,37 @@ export function Sidebar({state, setState}) {
           <h2>Mi Presupuesto</h2>
         </div>
 
-        {LinksArray.map(({icon, label, to}) => (
-          <div className={state? "LinkContainer active": "LinkContainer"} key={label}>
-             <NavLink to={to} className={({isActive}) => `Links ${isActive?` active`: ``}`}>
+        {LinksArray.map(({ icon, label, to }) => (
+          <div
+            className={state ? "LinkContainer active" : "LinkContainer"}
+            key={label}
+          >
+            <NavLink
+              to={to}
+              className={({ isActive }) => `Links ${isActive ? ` active` : ``}`}
+            >
               <div className="Linkicon">{icon}</div>
-              {state && <span>{label}</span>} 
+              {state && <span>{label}</span>}
             </NavLink>
           </div>
-           
-          ))
-        }
+        ))}
         <Divider />
-        
+        {SecondarylinksArray.map(({ icon, label, to }) => (
+          <div
+            className={state ? "LinkContainer active" : "LinkContainer"}
+            key={label}
+          >
+            <NavLink
+              to={to}
+              className={({ isActive }) => `Links ${isActive ? ` active` : ``}`}
+            >
+              <div className="Linkicon">{icon}</div>
+              {state && <span>{label}</span>}
+            </NavLink>
+          </div>
+        ))}
+        <Divider />
+        {state && <SidebarCard />}
       </Container>
     </Main>
   );
