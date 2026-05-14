@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {v, InputBuscadorLista, ConvertirCapitalize} from "../../index";
+import {v, InputBuscadorLista, ConvertirCapitalize, Device} from "../../index";
 import iso from "iso-country-currency"
 import { useState } from "react";
 export function ListaPaises({setSelect, setState}) {
@@ -48,7 +48,11 @@ const Container =styled.div`
   padding: 10px;
   gap: 10px;
   color: ${({theme}) => theme.text};
+  
   transition: all 0.3s;
+  @media ${() => Device.tablet} {
+    width: 400px;
+  }
   .header{
     display: flex;
     align-items: center;

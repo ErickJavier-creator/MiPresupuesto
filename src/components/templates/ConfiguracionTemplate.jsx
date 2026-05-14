@@ -53,7 +53,8 @@ export function ConfiguracionTemplate() {
             state={stateListaTemas}
             funcion={() => setStateListaTemas(!stateListaTemas)}
           />
-          {stateListaTemas && <ListaGenerica />}
+            {stateListaTemas && <ListaGenerica />}
+          
         </ContentCard>
       </section>
       <section className="main"></section>

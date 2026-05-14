@@ -6,6 +6,7 @@ export * from './components/moleculas/Btnsave';
 export * from './components/moleculas/InputBuscadorLista';
 export * from './components/moleculas/ItemsDesplegables';
 export * from './components/moleculas/ListaDesplegable';
+export * from './components/moleculas/ListaGenerica';
 export * from './components/organismos/DataUser';
 export * from './components/organismos/Header';
 export * from './components/organismos/ListaPaises';
