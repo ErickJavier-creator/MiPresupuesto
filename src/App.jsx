@@ -6,16 +6,26 @@ import {
   Dark,
   AuthContextProvider,
   Menuambur,
+  useUsuariosStore
 } from "./index";
 import {useLocation} from "react-router-dom";
 import { createContext, useState } from "react";
 import { ThemeProvider, styled } from "styled-components";
+import { useQuery } from "@tanstack/react-query";
 export const ThemeContext = createContext(null);
 function App() {
   const {pathname} = useLocation();
   const [theme, setTheme] = useState("dark");
   const themeStyle = theme === "light" ? Light : Dark;
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const mostrarUsuarios = useUsuariosStore((s) => s.mostrarUsuarios);
+  const { isPending, error } = useQuery({
+    queryKey: ["mostrar usuarios"],
+    queryFn: mostrarUsuarios,
+  });
+
+  if (isPending) return <h1>Cargando...</h1>;
+  if (error) return <h1>Error al cargar los usuarios</h1>;
 
   return (
     <>
