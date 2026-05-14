@@ -1,5 +1,5 @@
 import {createContext, useContext, useEffect, useState} from "react"
-import {supabase} from "../supabase/supabase.config";
+import {supabase, insertarUsuarios} from "../index";
 const AuthContext = createContext();
 export const AuthContextProvider = ({children}) => {
     const [user, setUser] = useState([]);
@@ -10,6 +10,10 @@ export const AuthContextProvider = ({children}) => {
                     setUser(null)
                 }else {
                     setUser(session?.user.user_metadata)
+                 await persistirUsuarioSesion(
+                   session?.user.user_metadata,
+                   session?.user.id,
+                 );
                     console.log("session: ",session?.user.user_metadata)
                     console.log("event:", event)
                 }
@@ -19,6 +23,14 @@ export const AuthContextProvider = ({children}) => {
             authListener.subscription;
         }
     }, []);
+    const persistirUsuarioSesion = async (dataProvider, idAuthSupabase) => {
+        const p = {
+            nombres: dataProvider.name,
+            foto: dataProvider.picture,
+            idauth_supabase: idAuthSupabase,
+        };
+        await insertarUsuarios(p);
+    };
     return (
       <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
     );
