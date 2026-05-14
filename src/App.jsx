@@ -18,7 +18,7 @@ function App() {
   const [theme, setTheme] = useState("dark");
   const themeStyle = theme === "light" ? Light : Dark;
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const mostrarUsuarios = useUsuariosStore((s) => s.mostrarUsuarios);
+  const {mostrarUsuarios} = useUsuariosStore();
   const { isPending, error } = useQuery({
     queryKey: ["mostrar usuarios"],
     queryFn: mostrarUsuarios,
