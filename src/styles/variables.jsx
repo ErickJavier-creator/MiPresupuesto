@@ -44,6 +44,7 @@ export const v = {
   colorbgGastos: `#fbcbc9`,
   colorError: `#F54E41`,
   colorExito: `#9046FF`,
+  colorselector: `#9046FF`,
   bpmaggie: `15em`,
   bplisa: `30em`,
   bpbart: `48em`,

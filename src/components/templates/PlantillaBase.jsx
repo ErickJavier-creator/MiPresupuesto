@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {useState} from "react";
 import {Header} from "../../index";
-export function ConfiguracionTemplate() {
+export function PlantillaBase() {
   const [state, setState] = useState(false);
   return (
     <Container>
@@ -14,7 +14,7 @@ export function ConfiguracionTemplate() {
     </Container>
   );
 }
-const Container =styled.div`
+const Container = styled.div`
   min-height: 100vh;
   padding: 15px;
   width: 100%;
