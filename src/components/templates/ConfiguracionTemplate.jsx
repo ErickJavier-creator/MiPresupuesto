@@ -1,14 +1,24 @@
 import styled from "styled-components";
 import {useState} from "react";
-import {Header, Selector,v, ListaPaises, useUsuariosStore} from "../../index";
+import {Header, Selector,v, ListaPaises, useUsuariosStore, ListaGenerica} from "../../index";
 export function ConfiguracionTemplate() {
+  // datos del usuario
   const {dataUsuarios} = useUsuariosStore();
   const [select, setSelect] = useState([]);
+  const [selectTema, setSelectTema] = useState([]);
   const [state, setState] = useState(false);
   const [stateListaPaises, setStateListaPaises] = useState(false);
+  const [stateListaTemas, setStateListaTemas] = useState(false);
+  // pais seleccionado
   const moneda = select.symbol? select.symbol : dataUsuarios.moneda;
   const pais = select.countryName? select.countryName : dataUsuarios.pais;
   const paisSeleccionado = "emoji " + moneda + " " + pais;
+  // tema
+  const iconoBd = dataUsuarios.tema === "0" ? "☀️" : "🌑"
+  const temaBd = dataUsuarios.tema === "0" ? "light" : "dark";
+  const temainicial = selectTema.tema === "0" ? selectTema.tema : temaBd;
+  const iconoinicial = selectTema.icono? selectTema.icono : iconoBd;
+  const temaSeleccionado = iconoinicial + " " + temainicial;
   return (
     <Container>
       <header className="header">
@@ -22,13 +32,28 @@ export function ConfiguracionTemplate() {
       <section className="area2">
         <ContentCard>
           <span>Moneda:</span>
-          <Selector state={stateListaPaises} texto1={paisSeleccionado} color={v.colorselector} funcion={() => setStateListaPaises(!stateListaPaises)} />
+          <Selector
+            state={stateListaPaises}
+            texto1={paisSeleccionado}
+            color={v.colorselector}
+            funcion={() => setStateListaPaises(!stateListaPaises)}
+          />
           {stateListaPaises && (
             <ListaPaises
               setSelect={(p) => setSelect(p)}
               setState={() => setStateListaPaises(!stateListaPaises)}
             />
           )}
+        </ContentCard>
+        <ContentCard>
+          <span>Tema:</span>
+          <Selector
+            texto1={temaSeleccionado}
+            color={v.colorselector}
+            state={stateListaTemas}
+            funcion={() => setStateListaTemas(!stateListaTemas)}
+          />
+          {stateListaTemas && <ListaGenerica />}
         </ContentCard>
       </section>
       <section className="main"></section>
@@ -67,6 +92,9 @@ const Container = styled.div`
         background-color: rgba(10, 10, 180, 0.1);
         display: flex;
         align-items: center;
+        flex-direction: column;
+        justify-content: start;
+        gap: 30px;
 }
     .main{
         grid-area: main;
