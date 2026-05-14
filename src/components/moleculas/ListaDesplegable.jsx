@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import {ItemsDesplegables, v} from "../../index";
-export function ListaDesplegable({data, top}) {
+export function ListaDesplegable({data, top, funcion}) {
   return (<Container top={top}>
       {
         data.map((item, index) => {
           return (
-            <ItemsDesplegables key={index} item={item}  />
+            <ItemsDesplegables funcion={() => funcion(item.tipo)} key={index} item={item}  />
           )
         })
       }

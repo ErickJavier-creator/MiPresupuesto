@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {Icono} from "../../index";
-export function ItemsDesplegables({item}) {
-  return (<Container>
+export function ItemsDesplegables({item, funcion}) {
+  return (<Container onClick={funcion}>
 <Icono>
     {item.icono ?? item.icon}
 </Icono>
@@ -21,6 +21,6 @@ const Container =styled.div`
     svg{
         font-size: 28px;
         display: block;
-        
+
     }
 `
