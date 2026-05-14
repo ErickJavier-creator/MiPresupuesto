@@ -20,5 +20,7 @@ const Container =styled.div`
     }
     svg{
         font-size: 28px;
+        display: block;
+        
     }
 `

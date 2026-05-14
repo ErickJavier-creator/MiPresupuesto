@@ -1,0 +1,44 @@
+import styled from "styled-components";
+export function BtnCircular({
+  icono,
+  width,
+  height,
+  bgcolor,
+  textcolor,
+  fontsize,
+    translateX,
+    translateY,
+}) {
+  return (
+    <Container
+      bgcolor={bgcolor}
+      width={width}
+      height={height}
+      textcolor={textcolor}
+      fontsize={fontsize}
+      translateX={translateX}
+      translateY={translateY}
+    >
+      <span>{icono}</span>
+    </Container>
+  );
+}
+const Container = styled.div`
+  background-color: ${(props) => props.bgcolor};
+  min-width: ${(props) => props.width};
+  min-height: ${(props) => props.height};
+  color: ${(props) => props.textcolor};
+  font-size: ${(props) => props.fontsize};
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transform: translateX(${(props) => props.translateX}) translateY(${(props) => props.translateY});
+
+  span {
+    font-size: ${(props) => props.fontsize};
+    text-align: center;
+    color: ${(props) => props.textcolor};
+  }
+`;
