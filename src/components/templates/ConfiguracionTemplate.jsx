@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {useState} from "react";
-import {Header, Selector,v, ListaPaises, useUsuariosStore, ListaGenerica} from "../../index";
+import {Header, Selector,v, ListaPaises, useUsuariosStore, ListaGenerica, TemasData} from "../../index";
 export function ConfiguracionTemplate() {
   // datos del usuario
   const {dataUsuarios} = useUsuariosStore();
@@ -53,9 +53,10 @@ export function ConfiguracionTemplate() {
             state={stateListaTemas}
             funcion={() => setStateListaTemas(!stateListaTemas)}
           />
-            {stateListaTemas && <ListaGenerica />}
+            {stateListaTemas && <ListaGenerica data={TemasData} setState={() => setStateListaTemas(!stateListaTemas)} funcion={setSelectTema}/>}
           
         </ContentCard>
+        
       </section>
       <section className="main"></section>
     </Container>
