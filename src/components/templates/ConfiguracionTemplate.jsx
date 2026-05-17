@@ -81,7 +81,6 @@ const editar = async () => {
         </ContentCard>
         <Btnsave  titulo="Guardar Cambios" bgcolor={v.colorselector} icono={<v.iconoguardar/>} funcion={editar}/>
       </section>
-      <section className="main"></section>
     </Container>
   );
 }
@@ -95,38 +94,32 @@ const Container = styled.div`
   grid-template: 
   "header" 100px
   "area1" 100px
-  "area2" 50px
-  "main" auto;
+  "area2" auto;
 
     .header{
         grid-area: header;
-        background-color: rgba(180, 10, 10, 0.1);
+        /* background-color: rgba(180, 10, 10, 0.1); */
         display: flex;
         align-items: center;
 }
 
     .area1{
         grid-area: area1;
-        background-color: rgba(10, 180, 10, 0.1);
+        /* background-color: rgba(10, 180, 10, 0.1); */
         display: flex;
         align-items: center;
+        justify-content: center;
 }
     
     .area2{
         grid-area: area2;
-        background-color: rgba(10, 10, 180, 0.1);
+        /* background-color: rgba(10, 10, 180, 0.1); */
         display: flex;
         align-items: center;
         flex-direction: column;
         justify-content: start;
         gap: 30px;
 }
-    .main{
-        grid-area: main;
-        background-color: rgba(180, 180, 10, 0.1);
-        display: flex;
-        align-items: center;
-    }
 `;
 const ContentCard = styled.div`
   display: flex;

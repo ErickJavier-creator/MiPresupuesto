@@ -13,6 +13,7 @@ export const useUsuariosStore = create((set, get) => (
             await EditarTemaMonedaUser(p);
             const response = await MostrarUsuarios();
             set({ dataUsuarios: response });
+            
         },
 
     }

@@ -18,18 +18,18 @@ export const MostrarUsuarios = async () => {
       .from("usuarios")
       .select("*")
       .eq("idauth_supabase", idAuthSupabase);
-    if (error) {
-      throw error;
-    }
+    // if (error) {
+    //   // throw error;
+    // }
     return Array.isArray(data) ? data[0] ?? null : data ?? null;
   } catch (error) {
-    const msg =
-      error?.message ||
-      error?.error_description ||
-      error?.details ||
-      String(error);
-    alert(`MostrarUsuarios: ${msg}`);
-    throw error;
+    // const msg =
+    //   error?.message ||
+    //   error?.error_description ||
+    //   error?.details ||
+    //   String(error);
+    // alert(`MostrarUsuarios: ${msg}`);
+    // throw error;
   }
 };
 
@@ -50,7 +50,7 @@ export async function EditarTemaMonedaUser(p) {
       return;
     }
     Swal.fire({
-      position: "top-end",
+      position: "center",
       icon: "success",
       title: "Datos actualizados",
       showConfirmButton: false,

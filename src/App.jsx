@@ -13,12 +13,15 @@ import { createContext, useState } from "react";
 import { ThemeProvider, styled } from "styled-components";
 import { useQuery } from "@tanstack/react-query";
 export const ThemeContext = createContext(null);
-function App() {
+function App() { 
+  const {mostrarUsuarios, dataUsuarios} = useUsuariosStore();
+
   const {pathname} = useLocation();
-  const [theme, setTheme] = useState("dark");
+  // const [theme, setTheme] = useState("dark");
+  const theme = dataUsuarios.tema=== "0" ? "light" : "dark";
   const themeStyle = theme === "light" ? Light : Dark;
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const {mostrarUsuarios} = useUsuariosStore();
+ 
   const { isPending, error } = useQuery({
     queryKey: ["mostrar usuarios"],
     queryFn: mostrarUsuarios,
@@ -29,7 +32,7 @@ function App() {
 
   return (
     <>
-      <ThemeContext.Provider value={{ setTheme, theme }}>
+      <ThemeContext.Provider value={{ theme }}>
         <ThemeProvider theme={themeStyle}>
           <AuthContextProvider>
             {
