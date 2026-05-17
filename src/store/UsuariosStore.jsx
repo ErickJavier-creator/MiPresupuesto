@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { MostrarUsuarios } from "../index";
+import { MostrarUsuarios, EditarTemaMonedaUser } from "../index";
 
 export const useUsuariosStore = create((set, get) => (
     {
@@ -8,6 +8,11 @@ export const useUsuariosStore = create((set, get) => (
           const response = await MostrarUsuarios();
             set({dataUsuarios: response});
             return response;
+        },
+        editartemamonedauser: async (p) => {
+            await EditarTemaMonedaUser(p);
+            const response = await MostrarUsuarios();
+            set({ dataUsuarios: response });
         },
 
     }

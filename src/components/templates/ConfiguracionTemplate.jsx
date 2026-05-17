@@ -30,16 +30,18 @@ export function ConfiguracionTemplate() {
   const temaSeleccionado = iconoinicial + " " + temainicial;
 // funcion editar 
 
-const editar = async () =>  {
-  const temaElegido = selectTema.descripcion === "light" ? "0" : "1";
-  const p = {
+const editar = async () => {
+  const temaElegido = selectTema.descripcion
+    ? selectTema.descripcion === "light"
+      ? "0"
+      : "1"
+    : dataUsuarios.tema;
+  await editartemamonedauser({
     tema: temaElegido,
-    moneda: moneda,
-    pais: pais,
-    id: dataUsuarios.id
-  }
-  await editartemamonedauser(p);
-}
+    moneda,
+    pais,
+  });
+};
    return (
     <Container>
       <header className="header">

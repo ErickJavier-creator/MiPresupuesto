@@ -1,4 +1,5 @@
 import { supabase, ObtenerIdAuthSupabase } from "../index";
+import Swal from "sweetalert2";
 export const InsertarUsuarios = async (p) => {
   try {
     const { data } = await supabase.from("usuarios").upsert([p], {
@@ -34,11 +35,27 @@ export const MostrarUsuarios = async () => {
 
 export async function EditarTemaMonedaUser(p) {
   try {
-    const {error} = await supabase.from("usuarios").update(p).eq("idauth_supabase", p.idAuthSupabase);
-    if(error){
-      alert(`error al editar usuario: ${error.message || String(error)}`);
-      
+    const idAuthSupabase = await ObtenerIdAuthSupabase();
+    if (!idAuthSupabase) {
+      alert("No hay sesión activa");
+      return;
     }
+    const { tema, moneda, pais } = p;
+    const { error } = await supabase
+      .from("usuarios")
+      .update({ tema, moneda, pais })
+      .eq("idauth_supabase", idAuthSupabase);
+    if (error) {
+      alert(`error al editar usuario: ${error.message || String(error)}`);
+      return;
+    }
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Datos actualizados",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   } catch (error) {
     alert(`EditarTemaMonedaUser: ${error.message || String(error)}`);
   }
