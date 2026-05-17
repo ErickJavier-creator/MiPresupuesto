@@ -12,7 +12,7 @@ import {
 } from "../../index";
 export function ConfiguracionTemplate() {
   // datos del usuario
-  const {dataUsuarios} = useUsuariosStore();
+  const {dataUsuarios, editartemamonedauser} = useUsuariosStore();
   const [select, setSelect] = useState([]);
   const [selectTema, setSelectTema] = useState([]);
   const [state, setState] = useState(false);
@@ -28,7 +28,19 @@ export function ConfiguracionTemplate() {
   const temainicial = selectTema.tema === "0" ? selectTema.tema : temaBd;
   const iconoinicial = selectTema.icono? selectTema.icono : iconoBd;
   const temaSeleccionado = iconoinicial + " " + temainicial;
-  return (
+// funcion editar 
+
+const editar = async () =>  {
+  const temaElegido = selectTema.descripcion === "light" ? "0" : "1";
+  const p = {
+    tema: temaElegido,
+    moneda: moneda,
+    pais: pais,
+    id: dataUsuarios.id
+  }
+  await editartemamonedauser(p);
+}
+   return (
     <Container>
       <header className="header">
         <Header
@@ -65,7 +77,7 @@ export function ConfiguracionTemplate() {
             {stateListaTemas && <ListaGenerica data={TemasData} setState={() => setStateListaTemas(!stateListaTemas)} funcion={setSelectTema}/>}
           
         </ContentCard>
-        <Btnsave  titulo="Guardar Cambios" bgcolor={v.colorselector} icono={<v.iconoguardar/>}/>
+        <Btnsave  titulo="Guardar Cambios" bgcolor={v.colorselector} icono={<v.iconoguardar/>} funcion={editar}/>
       </section>
       <section className="main"></section>
     </Container>
