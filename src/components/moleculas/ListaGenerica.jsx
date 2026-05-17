@@ -28,8 +28,8 @@ const Container = styled.div`
   background: ${({ theme }) => theme.bgtotal};
   color: ${({ theme }) => theme.text};
   position: absolute;
-  margin-top: 15px;
-  top: 88%;
+  margin-bottom: 15px;
+  bottom: 88%;
   width: 100%;
   padding: 10px;
   border-radius: 10px;

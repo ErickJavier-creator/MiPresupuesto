@@ -49,10 +49,8 @@ const editar = async () => {
           stateConfig={{ state: state, setState: () => setState(!state) }}
         />
       </header>
-      <section className="area1">
-        <h1>Ajustes</h1>
-      </section>
       <section className="area2">
+        <h1>AJUSTES</h1>
         <ContentCard>
           <span>Moneda:</span>
           <Selector
@@ -93,7 +91,6 @@ const Container = styled.div`
   display: grid;
   grid-template: 
   "header" 100px
-  "area1" 100px
   "area2" auto;
 
     .header{
@@ -101,14 +98,6 @@ const Container = styled.div`
         /* background-color: rgba(180, 10, 10, 0.1); */
         display: flex;
         align-items: center;
-}
-
-    .area1{
-        grid-area: area1;
-        /* background-color: rgba(10, 180, 10, 0.1); */
-        display: flex;
-        align-items: center;
-        justify-content: center;
 }
     
     .area2{
@@ -119,6 +108,10 @@ const Container = styled.div`
         flex-direction: column;
         justify-content: start;
         gap: 30px;
+        align-self: center;
+        h1{
+          font-size: 3rem;
+        }
 }
 `;
 const ContentCard = styled.div`
