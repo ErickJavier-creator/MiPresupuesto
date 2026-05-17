@@ -19,6 +19,8 @@ const Container =styled.button`
   border: none;
   gap: 10px;
   background-color: initial;
+  z-index: 2;
+  
   .btn{
     background: ${(props) => props.bgcolor};
     padding: 0.6em 1.3em;

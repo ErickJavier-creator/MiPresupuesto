@@ -31,3 +31,15 @@ export const MostrarUsuarios = async () => {
     throw error;
   }
 };
+
+export async function EditarTemaMonedaUser(p) {
+  try {
+    const {error} = await supabase.from("usuarios").update(p).eq("idauth_supabase", p.idAuthSupabase);
+    if(error){
+      alert(`error al editar usuario: ${error.message || String(error)}`);
+      
+    }
+  } catch (error) {
+    alert(`EditarTemaMonedaUser: ${error.message || String(error)}`);
+  }
+}

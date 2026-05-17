@@ -1,6 +1,15 @@
 import styled from "styled-components";
 import {useState} from "react";
-import {Header, Selector,v, ListaPaises, useUsuariosStore, ListaGenerica, TemasData} from "../../index";
+import {
+  Header,
+  Selector,
+  v,
+  ListaPaises,
+  useUsuariosStore,
+  ListaGenerica,
+  TemasData,
+  Btnsave,
+} from "../../index";
 export function ConfiguracionTemplate() {
   // datos del usuario
   const {dataUsuarios} = useUsuariosStore();
@@ -56,7 +65,7 @@ export function ConfiguracionTemplate() {
             {stateListaTemas && <ListaGenerica data={TemasData} setState={() => setStateListaTemas(!stateListaTemas)} funcion={setSelectTema}/>}
           
         </ContentCard>
-        
+        <Btnsave  titulo="Guardar Cambios" bgcolor={v.colorselector} icono={<v.iconoguardar/>}/>
       </section>
       <section className="main"></section>
     </Container>
